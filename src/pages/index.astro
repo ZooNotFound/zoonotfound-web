@@ -266,6 +266,10 @@ const galleryImages = Object.values(galleryFiles)
                 // We divide scrollWidth by 2 because we duplicated the array above
                 if (slider.scrollLeft >= slider.scrollWidth / 2) {
                     slider.scrollLeft = 0;
+
+					window.addEventListener('load', () => {
+        requestAnimationFrame(step);
+    });
                 }
             }
             requestAnimationFrame(step);
