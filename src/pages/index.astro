@@ -27,7 +27,7 @@ const galleryImages = Object.values(galleryFiles)
 ---
 
 <Layout>
-<main class="bg-gradient-to-b from-[#0a0510] via-[#13091F] to-[#240b36] h-screen text-white font-['Roboto',sans-serif] selection:bg-pink-500 selection:text-white overflow-y-scroll snap-none md:snap-y md:snap-mandatory scroll-smooth">		
+<main class="bg-gradient-to-b from-[#0a0510] via-[#13091F] to-[#240b36] h-screen text-white font-['Roboto',sans-serif] selection:bg-pink-500 selection:text-white overflow-y-scroll overflow-x-hidden snap-none md:snap-y md:snap-mandatory scroll-smooth">		
 		<div class="fixed top-6 right-6 md:top-8 md:right-8 z-[100] mix-blend-screen pointer-events-none">
 			<Image src={logo} alt="ZOONOTFOUND Logo" class="h-14 md:h-20 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" />
 		</div>
@@ -254,9 +254,13 @@ const galleryImages = Object.values(galleryFiles)
     let isPaused = false;
 
     if (slider) {
-        // Pause scrolling when the user hovers
+        // Mouse events for desktop
         slider.addEventListener('mouseenter', () => { isPaused = true; });
         slider.addEventListener('mouseleave', () => { isPaused = false; });
+
+        // Touch events for mobile
+        slider.addEventListener('touchstart', () => { isPaused = true; }, { passive: true });
+        slider.addEventListener('touchend', () => { isPaused = false; }, { passive: true });
 
         function step() {
             if (!isPaused && slider) {

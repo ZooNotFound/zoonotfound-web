@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+/* Safari vendor prefix fixes */
+
+/* Backdrop filter - Safari requires -webkit- prefix */
+[class*="backdrop-blur"] {
+  -webkit-backdrop-filter: blur(var(--tw-backdrop-blur));
+}
+
+/* Gradient text - Safari requires -webkit- prefix */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Firefox fallback - backdrop-filter not supported */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  [class*="backdrop-blur"] {
+    background-color: rgba(10, 5, 16, 0.95) !important;
+  }
+}
