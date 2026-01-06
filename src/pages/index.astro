@@ -260,22 +260,32 @@ const galleryImages = Object.values(galleryFiles)
 
         function step() {
             if (!isPaused && slider) {
-                slider.scrollLeft += 1; // Speed control
-                
-                // Infinite loop: When we've scrolled past the first set of images, jump back
-                // We divide scrollWidth by 2 because we duplicated the array above
-                if (slider.scrollLeft >= slider.scrollWidth / 2) {
-                    slider.scrollLeft = 0;
+                // 1. Move the slider
+                slider.scrollLeft += 1;
 
-					window.addEventListener('load', () => {
-        requestAnimationFrame(step);
-    });
+                // 2. Infinite loop check
+                // Safari safety: Check if scrollWidth is valid (> 0) to avoid glitches
+                if (slider.scrollWidth > 0 && slider.scrollLeft >= slider.scrollWidth / 2) {
+                    slider.scrollLeft = 0;
                 }
             }
+            // Keep the loop going
             requestAnimationFrame(step);
         }
 
-        requestAnimationFrame(step);
+        // --- THE FIX IS HERE ---
+        // We removed the "requestAnimationFrame(step)" that was down here.
+        // Instead, we check if the page is already loaded.
+        
+        if (document.readyState === 'complete') {
+            // If page is already loaded (e.g. from cache/refresh), start immediately
+            requestAnimationFrame(step);
+        } else {
+            // Otherwise, wait for the 'load' event (which ensures images have width)
+            window.addEventListener('load', () => {
+                requestAnimationFrame(step);
+            });
+        }
     }
 </script>
 
