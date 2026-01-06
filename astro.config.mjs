@@ -3,16 +3,17 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // This tells Astro to use the new Tailwind v4 engine
+  // 1. ADD YOUR SITE URL (Crucial for GitHub Pages + Custom Domain)
+  // Replace with your actual Aliyun domain
+  site: 'https://www.yourdomain.com', 
+
   vite: {
     plugins: [tailwindcss()],
   },
-  // Setting up the bilingual routes we planned
+
+  // 2. SIMPLIFIED i18n (Removed 'cn' since you don't have the Chinese version anymore)
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'cn'],
-    routing: {
-      prefixDefaultLocale: false
-    }
+    locales: ['en'],
   }
 });
