@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import bg from '../assets/landing_page_bg.png';
+import bg from '../assets/landing_page_bg.webp';
 import logo from '../assets/zoonotfound_logo.png';
 import tiktokQR from '../assets/tiktokqr.png';
 import insQR from '../assets/insqr.png';
@@ -9,15 +9,15 @@ import douyinQR from '../assets/douyinqr.png';
 import weixinQR from '../assets/weixinqr.jpeg';
 import redBizQR from '../assets/xiaohongshuqr.png';
 import redPersQR from '../assets/xiaohongshuqr2.png';
-import hifiHeadshot from '../assets/hifi_headshot.png';
-import hipooHeadshot from '../assets/hipoo_headshot.png';
-import bellaHeadshot from '../assets/bella_headshot.png';
-import macWindowImg from '../assets/zoonotfound_macwindow.jpeg';
-import bellaGif from '../assets/403gif.gif';
-import hifiGif from '../assets/404gif.gif';
-import hipooGif from '../assets/410gif.gif';
+import hifiHeadshot from '../assets/hifi_headshot.webp';
+import hipooHeadshot from '../assets/hipoo_headshot.webp';
+import bellaHeadshot from '../assets/bella_headshot.webp';
+import macWindowImg from '../assets/zoonotfound_macwindow.webp';
+import bellaVideo from '../assets/403_preview.mp4';
+import hifiVideo from '../assets/404_preview.mp4';
+import hipooVideo from '../assets/410_preview.mp4';
 
-const galleryFiles = import.meta.glob('../assets/gallery/*.jpg', { eager: true });
+const galleryFiles = import.meta.glob('../assets/gallery/*.webp', { eager: true });
 const galleryImages = Object.values(galleryFiles)
   .map((img: any) => img.default)
   .sort((a, b) => {
@@ -110,9 +110,17 @@ const galleryImages = Object.values(galleryFiles)
         </div>
 
         <div class="space-y-6">
-          <div class="w-full max-w-[428px] overflow-hidden rounded-2xl border border-cyan-500/30 shadow-2xl transform translate-y-0 md:translate-y-8 opacity-100 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-700 ease-out">
-            <img src={bellaGif.src} alt="403 GIF" width="428" height="240" class="w-full h-auto object-cover" loading="lazy" />
-          </div>
+<div class="w-full max-w-[428px] overflow-hidden rounded-2xl border border-cyan-500/30 shadow-2xl transform translate-y-0 md:translate-y-8 opacity-100 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-700 ease-out">
+  <video 
+    src={bellaVideo} 
+    autoplay 
+    loop 
+    muted 
+    playsinline 
+    class="w-full h-auto object-cover"
+    poster={bellaHeadshot.src} 
+  />
+</div>
 
           <p class="text-cyan-50 text-xl md:text-2xl font-medium leading-tight max-w-sm drop-shadow-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700 delay-200">
             a "delicate" pearl with an <span class="text-cyan-300">explosive thirst</span> for adventure
@@ -132,9 +140,17 @@ const galleryImages = Object.values(galleryFiles)
           <p class="text-pink-500 font-mono text-base font-bold uppercase tracking-[0.3em] mt-2 drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]"></p>
         </div>
         <div class="space-y-6">
-          <div class="w-full max-w-[428px] overflow-hidden rounded-2xl border border-pink-500/30 shadow-2xl transform translate-y-0 md:translate-y-8 opacity-100 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-700 ease-out">
-            <img src={hifiGif.src} alt="404 GIF" width="428" height="240" class="w-full h-auto object-cover" loading="lazy" />
-          </div>
+<div class="w-full max-w-[428px] overflow-hidden rounded-2xl border border-cyan-500/30 shadow-2xl transform translate-y-0 md:translate-y-8 opacity-100 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-700 ease-out">
+  <video 
+    src={hifiVideo} 
+    autoplay 
+    loop 
+    muted 
+    playsinline 
+    class="w-full h-auto object-cover"
+    poster={hifiHeadshot.src} 
+  />
+</div>
           <p class="text-pink-50 text-xl md:text-2xl font-medium leading-tight max-w-sm drop-shadow-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700 delay-200">
             a "ferocious" bear who prefers <span class="text-pink-300">hugs over battles</span>
           </p>
@@ -153,9 +169,17 @@ const galleryImages = Object.values(galleryFiles)
           <p class="text-purple-500 font-mono text-base font-bold uppercase tracking-[0.3em] mt-2 drop-shadow-[0_0_5px_rgba(168,85,247,0.8)]"></p>
         </div>
         <div class="space-y-6">
-          <div class="w-full max-w-[428px] overflow-hidden rounded-2xl border border-purple-500/30 shadow-2xl transform translate-y-0 md:translate-y-8 opacity-100 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-700 ease-out">
-            <img src={hipooGif.src} alt="410 GIF" width="428" height="240" class="w-full h-auto object-cover" loading="lazy" />
-          </div>
+<div class="w-full max-w-[428px] overflow-hidden rounded-2xl border border-cyan-500/30 shadow-2xl transform translate-y-0 md:translate-y-8 opacity-100 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-700 ease-out">
+  <video 
+    src={hipooVideo} 
+    autoplay 
+    loop 
+    muted 
+    playsinline 
+    class="w-full h-auto object-cover"
+    poster={hipooHeadshot.src} 
+  />
+</div>
           <p class="text-purple-50 text-xl md:text-2xl font-medium leading-tight max-w-sm drop-shadow-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-700 delay-200">
             a "stable" hippo prone to <span class="text-purple-300">anxious outbursts</span>
           </p>
@@ -187,21 +211,37 @@ const galleryImages = Object.values(galleryFiles)
 			</div>
 		</section>
 
-		<section class="h-screen w-full flex flex-col justify-center py-12 relative group md:snap-start bg-[#0a0510]">
+<section class="h-screen w-full flex flex-col justify-center py-12 relative group md:snap-start bg-[#0a0510]">
     <div class="max-w-[1400px] mx-auto px-6 mb-12 w-full">
         <h3 class="text-3xl font-black italic border-l-8 border-pink-500 pl-6 text-white tracking-wide">Sightings on Earth</h3>
     </div>
     
     <div class="relative w-full overflow-hidden" style="mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);">
         <div id="auto-slider" class="flex gap-8 overflow-x-auto scrollbar-hide px-[15vw] py-10">
-            {galleryImages.map((img) => (
+            
+            {/* First Set of Images */}
+            {galleryImages.map((img, index) => (
                 <div class="shrink-0 w-[280px] md:w-[450px] aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_10px_40px_rgba(168,85,247,0.3)]">
-                    <Image src={img} alt="Zoonotfound charm" class="w-full h-full object-cover" />
+                    <Image 
+                        src={img} 
+                        alt="Zoonotfound charm" 
+                        class="w-full h-full object-cover"
+                        loading={index < 10 ? "eager" : "lazy"}
+                        decoding={index < 10 ? "sync" : "async"}
+                    />
                 </div>
             ))}
-            {galleryImages.map((img) => (
+
+            {/* Duplicated Set for Infinite Effect */}
+            {galleryImages.map((img, index) => (
                 <div class="shrink-0 w-[280px] md:w-[450px] aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:shadow-[0_10px_40px_rgba(168,85,247,0.3)]">
-                    <Image src={img} alt="Zoonotfound charm" class="w-full h-full object-cover" />
+                    <Image 
+                        src={img} 
+                        alt="Zoonotfound charm" 
+                        class="w-full h-full object-cover"
+                        loading="lazy" 
+                        decoding="async"
+                    />
                 </div>
             ))}
         </div>
