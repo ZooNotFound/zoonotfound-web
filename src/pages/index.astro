@@ -1,23 +1,23 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import bg from '../../assets/landing_page_bg.png';
-import logo from '../../assets/zoonotfound_logo.png';
-import tiktokQR from '../../assets/tiktokqr.png';
-import insQR from '../../assets/insqr.png';
-import douyinQR from '../../assets/douyinqr.png';
-import weixinQR from '../../assets/weixinqr.jpeg';
-import redBizQR from '../../assets/xiaohongshuqr.png';
-import redPersQR from '../../assets/xiaohongshuqr2.png';
-import hifiHeadshot from '../../assets/hifi_headshot.png';
-import hipooHeadshot from '../../assets/hipoo_headshot.png';
-import bellaHeadshot from '../../assets/bella_headshot.png';
-import macWindowImg from '../../assets/zoonotfound_macwindow.jpeg';
-import bellaGif from '../../assets/403gif.gif';
-import hifiGif from '../../assets/404gif.gif';
-import hipooGif from '../../assets/410gif.gif';
+import bg from '../assets/landing_page_bg.png';
+import logo from '../assets/zoonotfound_logo.png';
+import tiktokQR from '../assets/tiktokqr.png';
+import insQR from '../assets/insqr.png';
+import douyinQR from '../assets/douyinqr.png';
+import weixinQR from '../assets/weixinqr.jpeg';
+import redBizQR from '../assets/xiaohongshuqr.png';
+import redPersQR from '../assets/xiaohongshuqr2.png';
+import hifiHeadshot from '../assets/hifi_headshot.png';
+import hipooHeadshot from '../assets/hipoo_headshot.png';
+import bellaHeadshot from '../assets/bella_headshot.png';
+import macWindowImg from '../assets/zoonotfound_macwindow.jpeg';
+import bellaGif from '../assets/403gif.gif';
+import hifiGif from '../assets/404gif.gif';
+import hipooGif from '../assets/410gif.gif';
 
-const galleryFiles = import.meta.glob('../../assets/gallery/*.jpg', { eager: true });
+const galleryFiles = import.meta.glob('../assets/gallery/*.jpg', { eager: true });
 const galleryImages = Object.values(galleryFiles)
   .map((img: any) => img.default)
   .sort((a, b) => {
