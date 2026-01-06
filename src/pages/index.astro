@@ -250,10 +250,13 @@ const galleryImages = Object.values(galleryFiles)
 </section>
 
 <script>
-    const slider = document.getElementById('auto-slider');
-    let isPaused = false;
+    function initGallery() {
+        const slider = document.getElementById('auto-slider');
+        if (!slider) return;
 
-    if (slider) {
+        let isPaused = false;
+        let animationId: number | null = null;
+
         // Mouse events for desktop
         slider.addEventListener('mouseenter', () => { isPaused = true; });
         slider.addEventListener('mouseleave', () => { isPaused = false; });
@@ -264,33 +267,53 @@ const galleryImages = Object.values(galleryFiles)
 
         function step() {
             if (!isPaused && slider) {
-                // 1. Move the slider
                 slider.scrollLeft += 1;
 
-                // 2. Infinite loop check
-                // Safari safety: Check if scrollWidth is valid (> 0) to avoid glitches
+                // Reset for infinite loop when halfway through
                 if (slider.scrollWidth > 0 && slider.scrollLeft >= slider.scrollWidth / 2) {
                     slider.scrollLeft = 0;
                 }
             }
-            // Keep the loop going
-            requestAnimationFrame(step);
+            animationId = requestAnimationFrame(step);
         }
 
-        // --- THE FIX IS HERE ---
-        // We removed the "requestAnimationFrame(step)" that was down here.
-        // Instead, we check if the page is already loaded.
-        
-        if (document.readyState === 'complete') {
-            // If page is already loaded (e.g. from cache/refresh), start immediately
-            requestAnimationFrame(step);
-        } else {
-            // Otherwise, wait for the 'load' event (which ensures images have width)
-            window.addEventListener('load', () => {
-                requestAnimationFrame(step);
-            });
+        function startAnimation() {
+            // Cancel any existing animation
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            animationId = requestAnimationFrame(step);
         }
+
+        // Wait until scrollWidth is valid (images have loaded)
+        function waitForImages() {
+            if (!slider) return;
+            if (slider.scrollWidth > slider.clientWidth) {
+                // Images have loaded, scrollWidth is valid
+                startAnimation();
+            } else {
+                // Safari quirk: scrollWidth might be 0 or too small, retry
+                requestAnimationFrame(waitForImages);
+            }
+        }
+
+        waitForImages();
     }
+
+    // Multiple initialization strategies for Safari compatibility
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGallery);
+    } else {
+        // DOM already ready, init immediately
+        initGallery();
+    }
+
+    // Handle Safari bfcache (back-forward navigation)
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            initGallery();
+        }
+    });
 </script>
 
 		<section class="min-h-screen w-full flex items-center justify-center md:snap-start bg-[#0f0816] px-6 py-20 relative overflow-hidden">
