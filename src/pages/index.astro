@@ -250,6 +250,14 @@ const galleryImages = Object.values(galleryFiles)
     </div>
 </section>
 
+<script>
+	const slider = document.getElementById('auto-slider');
+	if (slider) {
+		slider.addEventListener('click', () => {
+			slider.classList.toggle('paused');
+		});
+	}
+</script>
 
 		<section class="min-h-screen w-full flex items-center justify-center md:snap-start bg-[#0f0816] px-6 py-20 relative overflow-hidden">
 			<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-pink-900/20 via-[#0f0816] to-[#0f0816]"></div>
@@ -416,7 +424,7 @@ const galleryImages = Object.values(galleryFiles)
 		-webkit-backface-visibility: hidden;
 	}
 
-	.gallery-slider:hover {
+	.gallery-slider.paused {
 		animation-play-state: paused;
 	}
 
