@@ -226,8 +226,8 @@ const galleryImages = Object.values(galleryFiles)
                         src={img} 
                         alt="Zoonotfound charm" 
                         class="w-full h-full object-cover"
-                        loading={index < 10 ? "eager" : "lazy"}
-                        decoding={index < 10 ? "sync" : "async"}
+                        loading="eager"
+                        decoding="sync"
                     />
                 </div>
             ))}
@@ -239,8 +239,8 @@ const galleryImages = Object.values(galleryFiles)
                         src={img} 
                         alt="Zoonotfound charm" 
                         class="w-full h-full object-cover"
-                        loading="lazy" 
-                        decoding="async"
+                        loading="eager" 
+                        decoding="sync"
                     />
                 </div>
             ))}
