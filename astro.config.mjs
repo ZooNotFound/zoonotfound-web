@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   // 1. ADD YOUR SITE URL (Crucial for GitHub Pages + Custom Domain)
   // Replace with your actual Aliyun domain
-  site: 'https://www.yourdomain.com', 
+  site: 'https://www.zoonotfound.com', 
 
   vite: {
     plugins: [tailwindcss()],
