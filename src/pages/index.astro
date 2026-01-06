@@ -217,7 +217,7 @@ const galleryImages = Object.values(galleryFiles)
     </div>
     
     <div class="relative w-full overflow-hidden" style="mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); transform: translateZ(0);">
-        <div id="auto-slider" class="gallery-slider flex gap-8 px-[15vw] py-10">
+        <div id="auto-slider" class="gallery-slider flex gap-8 py-10 w-max">
             
             {/* First Set of Images */}
             {galleryImages.map((img, index) => (
@@ -401,17 +401,19 @@ const galleryImages = Object.values(galleryFiles)
 
 	/* CSS-only infinite scroll animation */
 	@keyframes scroll-gallery {
-		0% {
-			transform: translateX(0);
+		from {
+			transform: translate3d(0, 0, 0);
 		}
-		100% {
-			transform: translateX(-50%);
+		to {
+			transform: translate3d(-50%, 0, 0);
 		}
 	}
 
 	.gallery-slider {
-		animation: scroll-gallery 60s linear infinite;
+		animation: scroll-gallery 120s linear infinite;
 		will-change: transform;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
 	}
 
 	.gallery-slider:hover {
