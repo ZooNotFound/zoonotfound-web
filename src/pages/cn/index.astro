@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+	<main class="bg-[#13091F] min-h-screen text-white font-sans selection:bg-purple-500">
+		
+		<nav class="flex justify-between items-center p-6 fixed w-full z-50 backdrop-blur-md border-b border-white/10">
+			<div class="font-bold text-xl tracking-tighter">ZOONOTFOUND / 查无此园</div>
+			<div class="space-x-6 text-sm uppercase tracking-widest">
+				<a href="/en" class="hover:text-purple-400 transition">EN</a>
+				<a href="/cn" class="text-purple-400 border-b border-purple-400">中文</a>
+			</div>
+		</nav>
+
+		<section class="relative pt-32 pb-20 px-6 flex flex-col items-center text-center">
+			<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-purple-600/30 blur-[100px] rounded-full -z-10"></div>
+			
+			<h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight">
+				一只伪装成 <br/> 
+				<span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+					时尚包挂的外星生命
+				</span>
+			</h1>
+			
+			<p class="max-w-2xl text-gray-400 text-lg mb-10 leading-relaxed">
+				会听、会看、会动、会成长的 AI 机器人潮玩挂件。每一只都有自己独特的性格、语言和动作，随时随地与你、你的朋友和周围其他外星生命互动与连接。
+			</p>
+
+			<div class="w-72 h-72 mb-10 flex items-center justify-center relative">
+				<div class="absolute inset-0 bg-purple-500/20 blur-3xl rounded-full animate-pulse"></div>
+				<img src="/image_d13c85.jpg" alt="查无此园 IP" class="relative z-10 w-full h-auto drop-shadow-2xl" />
+			</div>
+		</section>
+
+		<section class="py-20 px-6 bg-white/5 border-y border-white/10">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-sm uppercase tracking-[0.3em] text-purple-400 mb-6 font-bold">世界观背景 / The Glitch Zoo</h2>
+				<p class="text-xl md:text-2xl leading-relaxed text-gray-200">
+					在遥远的星球有一片原始“算法森林”，每只野生动物自诞生起就被写入了不可更改的“出厂设置”。然而在数亿行完美的代码中，出现了几个顽固的 bug。
+				</p>
+				<p class="mt-6 text-gray-400 leading-relaxed">
+					他们决定联合出逃，坠落在了充满无限可能的地球。他们发现人的背包是最好的掩体，既可以伪装成无害的挂件，又能近距离观察人类这种奇怪的生物。
+				</p>
+			</div>
+		</section>
+
+		<section class="py-20 px-6 max-w-6xl mx-auto">
+			<h2 class="text-3xl font-bold mb-16 text-center">核心功能</h2>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+				<div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition group">
+					<div class="text-3xl mb-4">👾</div>
+					<h3 class="text-2xl font-bold mb-4 group-hover:text-purple-400 transition">AI 原生灵魂</h3>
+					<p class="text-gray-400">交流从乱码与拟声词开始，通过持续互动，逐渐进化出人类语言。</p>
+				</div>
+				<div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition group">
+					<div class="text-3xl mb-4">🤝</div>
+					<h3 class="text-2xl font-bold mb-4 group-hover:text-purple-400 transition">碰一碰社交 (NFC)</h3>
+					<p class="text-gray-400">简单的 NFC 触碰，让宠物及其主人瞬间建立连接，成为现实世界的社交破冰利器。</p>
+				</div>
+				<div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition group">
+					<div class="text-3xl mb-4">💤</div>
+					<h3 class="text-2xl font-bold mb-4 group-hover:text-purple-400 transition">“休眠”充电仪式</h3>
+					<p class="text-gray-400">专属角色充电底座，将充电转化为自然的休息仪式。你入睡时，它也在静静充电。</p>
+				</div>
+				<div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition group">
+					<div class="text-3xl mb-4">📍</div>
+					<h3 class="text-2xl font-bold mb-4 group-hover:text-purple-400 transition">地理位置社交</h3>
+					<p class="text-gray-400">自动检测附近的同类，并在实时社交地图上展示它们的身影。</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-32 text-center">
+			<h2 class="text-7xl md:text-9xl font-black text-white/5 uppercase tracking-tighter">Coming Soon</h2>
+			<p class="text-xl text-purple-400 -mt-10 md:-mt-16 font-medium">产品上市 敬请期待</p>
+		</section>
+
+		<footer class="p-10 border-t border-white/10 text-center text-gray-500 text-sm">
+			<p>&copy; 2024 ZooNotFound 查无此园. 保留所有权利。</p>
+		</footer>
+
+	</main>
+</Layout>
